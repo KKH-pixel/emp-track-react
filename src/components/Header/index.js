@@ -1,13 +1,12 @@
 import React from "react";
-// import { Link } from "react-router-dom";
-// import "./style.css";
+import "./style.css";
 
 function Header() {
     return (
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 class="display-4">Fluid jumbotron</h1>
-          <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+      <div className="jumbotron jumbotron-fluid">
+        <div className="container">
+          <h1 className="display-4">Employee Directory</h1>
+          <p className="lead">Click on first or last name to sort. Type in search to filter results by last name.</p>
         </div>
       </div>
       );

@@ -1,40 +1,36 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import TableHeader from "../TableHeader";
 // import "./style.css";
 
-function Table() {
+class Table extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+
+    render() {
     return (
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                <th scope="col">Image</th>
-                <th scope="col">Name</th>
-                <th scope="col">Phone</th>
-                <th scope="col">Email</th>
-                <th scope="col">DoB</th>
-                </tr>
-            </thead>
+        <table className="table table-hover">
+            <TableHeader onHeaderClick={this.props.onSort} />
             <tbody>
-                <tr>
-                <th scope="row"></th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                </tr>
-                {/* <tr>
-                <th scope="row"></th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                </tr>
-                <tr>
-                <th scope="row"></th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-                </tr> */}
+                {
+                this.props.employees.map ( employee => {
+                    return(
+                        <tr key={employee.id.value}>
+                            <td><img src={employee.picture.thumbnail} /></td>
+                            <td>{employee.name.first}</td>
+                            <td>{employee.name.last}</td>
+                            <td>{employee.email}</td>
+                            <td>{employee.phone}</td>
+                            <td>{employee.dob.date.split("T")[0]}</td>
+                        </tr>
+                    )}
+                    )
+                }
             </tbody>
         </table>
     );
+}
 }
     
 export default Table;
